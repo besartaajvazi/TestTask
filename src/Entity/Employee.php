@@ -32,6 +32,10 @@ class Employee
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
+     /**
+     * @ORM\ManyToOne(targetEntity="Department")
+     * @ORM\JoinColumn(name="department_id", referencedColumnName="id")
+     */
     #[ORM\Column(length: 255)]
     private ?string $department = null;
 

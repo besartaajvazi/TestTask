@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\EmployeeRepository;
 use App\Entity\Employee;
@@ -23,7 +24,7 @@ class EmployeeController extends AbstractController
         $this->employeeRepository = $employeeRepository;
     }
 
-    #[Route('/employee', name: 'app_employee')]
+    #[Route('/employee', name: 'employee')]
     public function index(): Response
     {
         $employees = $this->employeeRepository->findAll();
@@ -34,14 +35,44 @@ class EmployeeController extends AbstractController
         ]);
     }
 
-    #[Route('/import', methods:['GET', 'POST'], name: 'app_import')]
+    #[Route('/employee/search', methods: ['GET'], name: 'app_employee_search_api')]
+    public function search(Request $request): JsonResponse
+    {
+        $searchTerm = $request->query->get('q'); 
+    
+        $employees = $this->employeeRepository->searchEmployees($searchTerm);
+    
+        $results = [];
+    
+        foreach ($employees as $employee) {
+            $result = [
+                'name' => $employee->getName(),
+                'manager' => $employee->getManager(),
+                'username' => $employee->getUsername(),
+                'email' => $employee->getEmail(),
+                'department' => $employee->getDepartment(), 
+                'phoneNumber' => $employee->getPhoneNumber(),
+                'address1' => $employee->getAddress1(),
+                'startDate' => $employee->getStartDate(), 
+                'endDate' => $employee->getEndDate() 
+            ];
+
+            $results[] = $result;
+        }
+            
+        // Return the search results as JSON
+        return new JsonResponse($results);
+    }
+    
+
+    #[Route('/import', methods:['GET', 'POST'], name: 'import')]
     public function import(Request $request): Response
     {
         $file = $request->files->get('import_file');
     
         if ($file === null) {
             $this->addFlash('error', 'No file uploaded.');
-            return $this->redirectToRoute('app_employee');
+            return $this->redirectToRoute('employee');
         }
         
         $allowed_ext = ['xls', 'csv', 'xlsx'];
@@ -51,7 +82,7 @@ class EmployeeController extends AbstractController
     
         if (!in_array($file_ext, $allowed_ext)) {
             $this->addFlash('error', 'Invalid file format.');
-            return $this->redirectToRoute('app_employee');
+            return $this->redirectToRoute('employee');
         }
     
         // Retrieve existing employees and departments from the database
@@ -109,8 +140,13 @@ class EmployeeController extends AbstractController
                 $employee->setDepartment($department);
                 $employee->setPhoneNumber($phoneNumber);
                 $employee->setAddress1($address1);
-                $employee->setStartDate($startDate);
-                $employee->setEndDate($endDate);
+                  // Convert DateTime objects to strings
+                $startDateString = $startDate->format('Y-m-d');
+                $endDateString = $endDate->format('Y-m-d');
+
+                    // Set the converted date strings in the employee entity
+                $employee->setStartDate($startDateString);
+                $employee->setEndDate($endDateString);
     
                 $today = new \DateTime();
                 $startDate = \DateTime::createFromFormat('Y-m-d', $startDate);
@@ -188,7 +224,7 @@ class EmployeeController extends AbstractController
     
         $this->addFlash('success', 'File imported successfully.');
     
-        return $this->redirectToRoute('app_employee');
+        return $this->redirectToRoute('employee');
     }
        
 }

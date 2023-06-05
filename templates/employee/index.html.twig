@@ -17,7 +17,7 @@
                         {% set _ = app.flashes.remove('status') %}
                     {% endif %}
 
-                    <form action="{{ path('app_import') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ path('import') }}" method="POST" enctype="multipart/form-data">
                         <div class="card card-body shadow">
                             <div class="row">
                                 <div class="col-md-2 my-auto">

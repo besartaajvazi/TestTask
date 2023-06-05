@@ -38,7 +38,23 @@ class EmployeeRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    
+    public function searchEmployees($searchTerm)
+    {
+        $queryBuilder = $this->createQueryBuilder('e');
+        $queryBuilder->select('e')
+           // ->leftJoin('e.department', 'd')
+            ->where(
+                $queryBuilder->expr()->orX(
+                    $queryBuilder->expr()->like('e.name', ':searchTerm'),
+                    $queryBuilder->expr()->like('e.username', ':searchTerm')//,
+                    //$queryBuilder->expr()->like('d.departmentName', ':searchTerm')
+                )
+            )
+            ->setParameter('searchTerm', '%' . $searchTerm . '%');
 
+        return $queryBuilder->getQuery()->getResult();
+    }
 //    /**
 //     * @return Employee[] Returns an array of Employee objects
 //     */

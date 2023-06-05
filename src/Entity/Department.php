@@ -18,7 +18,11 @@ class Department
     {
         $this->id = Uuid::uuid4()->toString();
     }
-
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Employee", mappedBy="department")
+     */
+    private $employees;
 
     #[ORM\Column(length: 255)]
     private ?string $department_name = null;
@@ -74,5 +78,10 @@ class Department
         $this->department_phone = $department_phone ?? '';
 
         return $this;
+    }
+    
+    public function getEmployees()
+    {
+        return $this->employees;
     }
 }
