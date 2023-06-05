@@ -72,6 +72,9 @@ class EmployeeController extends AbstractController
         $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($targetPath);
         $data = $spreadsheet->getActiveSheet()->toArray();
     
+        // Remove the first row (column names)
+        array_shift($data);
+
         foreach ($data as $row) {
             // Extract employee and department information from the row
             $name = $row['0'];
