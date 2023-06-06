@@ -1,19 +1,22 @@
 <?php
 
 namespace App\Tests\Controller;
-
-
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class EmployeeControllerTest extends WebTestCase
 {
-    public function testIndex(): void
+    public function testImport(): void
     {
+        // Arrange
         $client = static::createClient();
-
-        $client->request('GET', '/employee');
-
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertSelectorTextContains('h1', 'Employee List');
+    
+        // Act
+        $crawler = $client->request('POST', '/import');
+    
+        // Assert
+        $this->assertSame(302, $client->getResponse()->getStatusCode());
+        $this->assertTrue($client->getResponse()->isRedirect('/employee'));
     }
+    
 }
+    

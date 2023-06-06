@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use Psr\Log\LoggerInterface;
 use App\Entity\Department;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,10 +17,12 @@ use Ramsey\Uuid\Uuid;
 
 class EmployeeController extends AbstractController
 {
+    private $logger;
     private $em;
     private $employeeRepository;
-    public function __construct(EntityManagerInterface $em, EmployeeRepository $employeeRepository) 
+    public function __construct(LoggerInterface $logger, EntityManagerInterface $em, EmployeeRepository $employeeRepository) 
     {
+        $this->logger = $logger;
         $this->em = $em;
         $this->employeeRepository = $employeeRepository;
     }
@@ -30,6 +33,7 @@ class EmployeeController extends AbstractController
         $employees = $this->employeeRepository->findAll();
 
 
+        $this->logger->info('EmployeeController - index action called.');
         return $this->render('employee/index.html.twig', [
             'employees' => $employees
         ]);
