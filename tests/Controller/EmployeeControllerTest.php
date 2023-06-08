@@ -61,8 +61,7 @@ class EmployeeControllerTest extends WebTestCase
         $requestMock = $this->createMock(Request::class);
         $queryParameters = new ParameterBag(['q' => 'John']);
     
-        $requestMock->query = $queryParameters;
-    
+        $requestMock->query = $queryParameters;    
         $response = $employeeController->search($requestMock);
     
         // Assert that the response is a JsonResponse
