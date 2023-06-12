@@ -54,7 +54,7 @@ Encore
     })
 
     .enablePostCssLoader((options)=> {
-        options.postsccOptions = {
+        options.postcssOptions = {
             config: './postcss.config.js'
         }
     })
