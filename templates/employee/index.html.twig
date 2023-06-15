@@ -12,10 +12,17 @@
                 <div class="col-md-12 mt-4">
                     <h5 class="mb-3">Import Data from Excel</h5>
                     <hr>
-                    {% if app.flashes.status is defined %}
-                        <h5>{{ app.flashes.status }}</h5>
-                        {% set _ = app.flashes.remove('status') %}
-                    {% endif %}
+                      {% for flashMessage in app.flashes('error') %}
+                        <div class="alert alert-danger">
+                            {{ flashMessage }}
+                        </div>
+                    {% endfor %}
+
+                    {% for flashMessage in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ flashMessage }}
+                        </div>
+                    {% endfor %}
 
                     <form action="{{ path('import') }}" method="POST" enctype="multipart/form-data">
                         <div class="card card-body shadow">

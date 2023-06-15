@@ -62,14 +62,19 @@ class EmployeeController extends AbstractController
             
         // Return the search results as JSON
         return new JsonResponse($results);
-    }
-    
+    }    
 
-    #[Route('/import', methods:['GET', 'POST'], name: 'import')]
+    #[Route('/import', methods:['POST'], name: 'import')]
     public function import(Request $request): Response
     {
+        if (!$request->files->has('import_file')) {
+            $this->addFlash('error', 'No file uploaded.');
+            return $this->redirectToRoute('employee');
+        }
+        
         $file = $request->files->get('import_file');
-    
+        
+   
         if ($file === null) {
             $this->addFlash('error', 'No file uploaded.');
             return $this->redirectToRoute('employee');
@@ -223,8 +228,9 @@ class EmployeeController extends AbstractController
         $this->em->flush();
     
         $this->addFlash('success', 'File imported successfully.');
-    
-        return $this->redirectToRoute('employee');
+
+     //   return new JsonResponse(['message' => 'File imported successfully.']);
+     return $this->redirectToRoute('employee');
     }
        
 }
