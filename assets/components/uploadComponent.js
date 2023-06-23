@@ -15,6 +15,7 @@ const UploadComponent = () => {
   
       axios.post('/import', formData)
         .then((response) => {
+          window.location.reload();
           console.log(response.data);
         })
         .catch((error) => {
