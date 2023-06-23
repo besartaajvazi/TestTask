@@ -64,7 +64,7 @@ class EmployeeController extends AbstractController
         return new JsonResponse($results);
     }    
 
-    #[Route('/import', methods:['POST'], name: 'import')]
+    #[Route('/import', methods:['POST', 'GET'], name: 'import_file')]
     public function import(Request $request): Response
     {
         if (!$request->files->has('import_file')) {

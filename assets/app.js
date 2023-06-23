@@ -6,4 +6,17 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
+/*import UploadComponent from './components/uploadComponent';
 import './styles/app.css';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+ReactDOM.createRoot(document.getElementById('app')).render(     
+    <UploadComponent />        
+);
+*/
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import UploadComponent from './components/uploadComponent';
+
+createRoot(document.getElementById('app')).render(<UploadComponent />);
