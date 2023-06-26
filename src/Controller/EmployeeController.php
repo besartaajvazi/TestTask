@@ -29,7 +29,6 @@ class EmployeeController extends AbstractController
     {
         $employees = $this->employeeRepository->findAll();
 
-
         return $this->render('employee/index.html.twig', [
             'employees' => $employees
         ]);
@@ -67,29 +66,21 @@ class EmployeeController extends AbstractController
     #[Route('/import', methods:['POST', 'GET'], name: 'import_file')]
     public function import(Request $request): Response
     {
-        if (!$request->files->has('import_file')) {
-            $this->addFlash('error', 'No file uploaded.');
-            return $this->redirectToRoute('employee');
-        }
-        
         $file = $request->files->get('import_file');
-        
-   
+
         if ($file === null) {
-            $this->addFlash('error', 'No file uploaded.');
-            return $this->redirectToRoute('employee');
+            return new JsonResponse(['error' => 'No file uploaded.'], JsonResponse::HTTP_BAD_REQUEST);
         }
-        
+
         $allowed_ext = ['xls', 'csv', 'xlsx'];
         $fileName = $file->getClientOriginalName();
-        $chechking = explode(".", $fileName);
-        $file_ext = strtolower(end($chechking));
-    
+        $checking = explode(".", $fileName);
+        $file_ext = strtolower(end($checking));
+
         if (!in_array($file_ext, $allowed_ext)) {
-            $this->addFlash('error', 'Invalid file format.');
-            return $this->redirectToRoute('employee');
+            return new JsonResponse(['error' => 'Invalid file format.'], JsonResponse::HTTP_BAD_REQUEST);
         }
-    
+        
         // Retrieve existing employees and departments from the database
         $existingEmployees = $this->em->getRepository(Employee::class)->findAll();
         $existingDepartments = $this->em->getRepository(Department::class)->findAll();
@@ -227,10 +218,10 @@ class EmployeeController extends AbstractController
     
         $this->em->flush();
     
-        $this->addFlash('success', 'File imported successfully.');
-
-     //   return new JsonResponse(['message' => 'File imported successfully.']);
-     return $this->redirectToRoute('employee');
+         // For success message
+        $this->addFlash('success', 'File uploaded successfully.');
+        return new JsonResponse(['success' => 'File uploaded successfully.']);
+        return $this->redirectToRoute('employee');
     }
        
 }
