@@ -42,7 +42,7 @@ $ composer install
 
 ```
 ## How to configure MySQL database connection?
-To specify the MySQL database connection configuration in a .env file, modify this URL:
+To specify the MySQL database connection configuration in a .env file, modify DATABASE_URL to:
 
 ```shell 
 DATABASE_URL="mysql://root:@127.0.0.1:3306/test_task_db?serverVersion=5.7"
