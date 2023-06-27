@@ -47,6 +47,3 @@ To specify the MySQL database connection configuration in a .env file, modify DA
 ```shell 
 DATABASE_URL="mysql://root:@127.0.0.1:3306/test_task_db?serverVersion=5.7"
 ```
-
-### Who do I talk to? ###
-* Product Owner: [Krenare Shala Rrmoku](mailto:krenare.shala@elba-tech.com) 
