@@ -10,7 +10,7 @@ Symfony TestTask Application
 
 ## Requirements
 
-* Make sure you have [PHP 8.0](https://www.php.net/releases/8_0_0.php/) or a higher version installed.
+* Make sure you have [PHP 8.1](https://www.php.net/releases/8_0_0.php/) or a higher version installed.
 * Make sure you have [Visual Studio Code](https://code.visualstudio.com/) installed.
 
 ## Built With
