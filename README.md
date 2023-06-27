@@ -10,7 +10,7 @@ Symfony TestTask Application
 
 ### Built With ###
 
-[![PHP][https://www.php.net/]][php-url]
+[[PHP][https://www.php.net/]][php-url]
 [![Symfony][https://symfony.com/]][symfony-url]
 [![React][https://react.dev/]][react-url]
 [![MySQL][https://www.mysql.com/]][mysql-url]
