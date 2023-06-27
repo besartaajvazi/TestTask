@@ -11,15 +11,10 @@ Version 1.0
 ### Built With
 
 [<img src="https://www.php.net/images/logos/php-logo.svg" height="20">](https://www.php.net/)
-
 [<img src="https://symfony.com/images/logos/header-logo.svg" height="20">](https://symfony.com/)
-
 [<img src="https://reactjs.org/logo-og.png" height="20">](https://react.dev/)
-
 [<img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" height="20">](https://www.mysql.com/)
 
-### Build Tools
-[<img src="https://code.visualstudio.com/assets/branding/product-icons/1x/vscode.png" height="20">](https://code.visualstudio.com/)
 
 ## Installation
 
@@ -30,7 +25,7 @@ Option 1: Download [Symfony CLI](https://symfony.com/download) and use the insta
 ```shell
 $ symfony new --demo test_task
 ```
-Option 2. Download [![Composer][https://getcomposer.org/]][composer-url]  and use the installed `composer` binary to run these commands:
+Option 2. Download [<img src="https://getcomposer.org/img/logo-composer.png" height="20">](https://getcomposer.org/) and use the installed `composer` binary to run these commands:
 ```shell
     - Create a new project based on the Symfony Demo project:
        $ composer create-project symfony/symfony-demo test_task
