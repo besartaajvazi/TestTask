@@ -32,13 +32,13 @@ $ symfony new --demo test_task
 ```
 * Download [Composer](https://getcomposer.org/) and use the installed `composer` binary to run these commands:
 ```shell
-       # Create a new project based on the Symfony Demo project:
-       $ composer create-project symfony/symfony-demo test_task
+# Create a new project based on the Symfony Demo project:
+$ composer create-project symfony/symfony-demo test_task
 
-       # Alternatively, you can clone the code repository and install its dependencies:
-       $ git clone https://github.com/besartaajvazi/TestTask/ test_task
-       $ cd test_task
-       $ composer install
+# Alternatively, you can clone the code repository and install its dependencies:
+$ git clone https://github.com/besartaajvazi/TestTask/ test_task
+$ cd test_task
+$ composer install
 
 ```
 ## How to configure MySQL database connection?
