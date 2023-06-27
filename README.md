@@ -10,14 +10,14 @@ Version 1.0
 
 ### Built With
 
-[![PHP](https://www.php.net/images/logos/php-logo.svg)](https://www.php.net/)
-[![Symfony](https://symfony.com/images/logos/header-logo.svg)](https://symfony.com/)
-[![React](https://reactjs.org/logo-og.png)](https://react.dev/)
-[![MySQL](https://www.mysql.com/common/logos/logo-mysql-170x115.png)](https://www.mysql.com/)
+[<img src="https://www.php.net/images/logos/php-logo.svg" height="20">](https://www.php.net/)
+[<img src="https://symfony.com/images/logos/header-logo.svg" height="20">](https://symfony.com/)
+[<img src="https://reactjs.org/logo-og.png" height="20">](https://react.dev/)
+[<img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" height="20">](https://www.mysql.com/)
 
 ### Build Tools
 
-[![Visual Studio Code](https://code.visualstudio.com/assets/branding/product-icons/1x/vscode_1x.png)](https://code.visualstudio.com/)
+[<img src="https://code.visualstudio.com/assets/branding/product-icons/1x/vscode_1x.png" height="20">](https://code.visualstudio.com/)
 
 ## Installation
 
@@ -38,7 +38,7 @@ Option 2. Download [![Composer][https://getcomposer.org/]][composer-url]  and us
        $ cd my_project/
        $ composer install
 
-
+```
 How to configure MySQL database connection?
 To specify the MySQL database connection configuration in a .env file, modify this URL:
 DATABASE_URL="mysql://root:@127.0.0.1:3306/test_task_db?serverVersion=5.7"
