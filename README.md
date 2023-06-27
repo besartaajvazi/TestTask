@@ -23,7 +23,7 @@ Symfony TestTask Application
 
 ## Installation
 
-There are multiple ways to install this project based on your requirements.
+There are multiple ways to install this project based on your requirements:
 
 * Download [Symfony CLI](https://symfony.com/download) and use the installed `symfony` binary to run this command:
 
@@ -32,10 +32,10 @@ $ symfony new --demo test_task
 ```
 * Download [Composer](https://getcomposer.org/) and use the installed `composer` binary to run these commands:
 ```shell
-    Create a new project based on the Symfony Demo project:
+       # Create a new project based on the Symfony Demo project:
        $ composer create-project symfony/symfony-demo test_task
 
-    Alternatively, you can clone the code repository and install its dependencies:
+       # Alternatively, you can clone the code repository and install its dependencies:
        $ git clone https://github.com/besartaajvazi/TestTask/ test_task
        $ cd test_task
        $ composer install
