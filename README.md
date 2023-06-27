@@ -50,12 +50,3 @@ DATABASE_URL="mysql://root:@127.0.0.1:3306/test_task_db?serverVersion=5.7"
 
 ### Who do I talk to? ###
 * Product Owner: [Krenare Shala Rrmoku](mailto:krenare.shala@elba-tech.com) 
-
-[php-url]: https://img.shields.io/static/v1?message=PHP&logo=php&labelColor=5c5c5c&color=#777BB4&logoColor=white&label=%20
-[react-url]: https://img.shields.io/static/v1?message=React&logo=react&labelColor=5c5c5c&color=1182c3&logoColor=white&label=%20
-[symfony-url]: https://img.shields.io/static/v1?message=Symfony&logo=symfony&labelColor=5c5c5c&color=#000000&logoColor=white&label=%20
-[mysql-url]: https://img.shields.io/static/v1?message=MySQL&logo=mysql&labelColor=5c5c5c&color=#777BB4&logoColor=white&label=%20
-[checkstyle.sourceforge.io]: https://img.shields.io/badge/Checkstyle-fdc205?style=for-the-badge
-[checkstyle-url]: https://checkstyle.sourceforge.io/
-[visualstudio-url]: https://img.shields.io/static/v1?message=Visual%20Studio%20Code&logo=visualstudiocode&labelColor=5C2D91&color=#777BB4&logoColor=white&label=%20
-[composer-url]: https://img.shields.io/static/v1?message=Composer&logo=composer&labelColor=885630&color=#885630&logoColor=white&label=%20
