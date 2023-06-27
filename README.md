@@ -2,13 +2,13 @@
 
 Symfony TestTask Application
 
-### What is the purpose of this repository?
+##4 What is the purpose of this repository?
 
 The 'Symfony TestTask Application' serves as a reference application that demonstrates the process of uploading files using a React Component and storing the associated data in a MySQL database.
 
 Version 1.0
 
-### Built With
+## Built With
 
 [<img src="https://www.php.net/images/logos/php-logo.svg" height="20">](https://www.php.net/)
 [<img src="https://symfony.com/images/logos/header-logo.svg" height="20">](https://symfony.com/)
@@ -25,7 +25,7 @@ Option 1: Download [Symfony CLI](https://symfony.com/download) and use the insta
 ```shell
 $ symfony new --demo test_task
 ```
-Option 2. Download [<img src="https://getcomposer.org/img/logo-composer.png" height="20">](https://getcomposer.org/) and use the installed `composer` binary to run these commands:
+Option 2. Download [Composer](https://getcomposer.org/) and use the installed `composer` binary to run these commands:
 ```shell
     - Create a new project based on the Symfony Demo project:
        $ composer create-project symfony/symfony-demo test_task
@@ -36,7 +36,7 @@ Option 2. Download [<img src="https://getcomposer.org/img/logo-composer.png" hei
        $ composer install
 
 ```
-How to configure MySQL database connection?
+## How to configure MySQL database connection?
 To specify the MySQL database connection configuration in a .env file, modify this URL:
 
 ```shell 
