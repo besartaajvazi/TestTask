@@ -2,11 +2,16 @@
 
 Symfony TestTask Application
 
-##4 What is the purpose of this repository?
+## What is the purpose of this repository?
 
-The 'Symfony TestTask Application' serves as a reference application that demonstrates the process of uploading files using a React Component and storing the associated data in a MySQL database.
+* The 'Symfony TestTask Application' serves as a reference application that demonstrates the process of uploading files using a React Component and storing the associated data in a MySQL database.
 
-Version 1.0
+* Version 1.0
+
+## Requirements
+
+* PHP 8.0 or higher
+* [Visual Studio Code](https://code.visualstudio.com/) 
 
 ## Built With
 
@@ -27,12 +32,12 @@ $ symfony new --demo test_task
 ```
 Option 2. Download [Composer](https://getcomposer.org/) and use the installed `composer` binary to run these commands:
 ```shell
-    - Create a new project based on the Symfony Demo project:
+    * Create a new project based on the Symfony Demo project:
        $ composer create-project symfony/symfony-demo test_task
 
-    - Alternatively, you can clone the code repository and install its dependencies:
+    * Alternatively, you can clone the code repository and install its dependencies:
        $ git clone https://github.com/besartaajvazi/TestTask/ test_task
-       $ cd my_project/
+       $ cd test_task
        $ composer install
 
 ```
