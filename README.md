@@ -47,3 +47,25 @@ To specify the MySQL database connection configuration in a .env file, modify DA
 ```shell 
 DATABASE_URL="mysql://root:@127.0.0.1:3306/test_task_db?serverVersion=5.7"
 ```
+
+### Is a specific file or data format required?
+Yes, for this test example you need an excel file with these two tables:
+
+    * Employee
+        * name
+        * manager
+        * username
+        * email
+        * department
+        * phone number
+        * address1
+        * start_date
+        * end_date
+    
+    * Department
+        * department_name
+        * department_leader
+        * department_phone
+
+
+ 
